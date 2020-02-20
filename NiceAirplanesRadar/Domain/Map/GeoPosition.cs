@@ -38,5 +38,10 @@ namespace NiceAirplanesRadar
             return distanceKilomoters < 0 ? distanceKilomoters * -1 : distanceKilomoters;
         }
 
+        public override string ToString()
+        {
+            return $"Lat: {this.Latitude} Lon: {this.Longitude}";
+        }
+
     }
 }

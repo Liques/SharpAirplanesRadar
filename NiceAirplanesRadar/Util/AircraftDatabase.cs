@@ -30,7 +30,7 @@ namespace NiceAirplanesRadar.Util
                     .ToList();
 
                 dataRawDic = raw
-                            .Select(s => s.Split(","))
+                            .Select(s => s.Split(','))
                             .Where(w => w.Length >= 6 && !String.IsNullOrEmpty(w[5]?.Trim()))
                             .GroupBy(g => g[0].ToLower().Trim('"'))
                             .ToDictionary(k => k.Key, v => v.FirstOrDefault()[5].Trim('"').Trim());

@@ -10,6 +10,7 @@ namespace NiceAirplanesRadar
 {
     public class Airport
     {
+        private const string resourceFileName = "airports.json";
         public string City { get; set; }
         public string Country { get; set; }
         public string Name { get; set; }
@@ -39,17 +40,17 @@ namespace NiceAirplanesRadar
         /// <returns></returns>
         public static Airport GetAirportByICAO(string icao)
         {
-               
 
-            var choosedAirport = ListAirports.Where(s => s.Value["ICAO"].ToString() == icao).FirstOrDefault();
+
+            var choosedAirport = ListAirports.Where(s => s.Value.ContainsKey("ICAO") && s.Value["ICAO"].ToString() == icao).FirstOrDefault();
 
             if (!String.IsNullOrEmpty(choosedAirport.Key))
             {
                 return GetAirportByIata(choosedAirport.Key);
             }
-            
+
             return new Airport()
-            {               
+            {
                 Name = icao + " (no found)",
                 ICAO = icao,
             };
@@ -64,15 +65,11 @@ namespace NiceAirplanesRadar
         {
             if (ListAirports == null)
             {
-                LoggingHelper.LogBehavior(">>> Loading airports.json...");
-                    StreamReader file = File.OpenText(MultiOSFileSupport.ResourcesFolder + "airports.json");
+                string jsonstring = ResourceHelper.LoadExternalResource(resourceFileName);
 
+                ListAirports = JsonConvert.DeserializeObject<IDictionary<string, IDictionary<string, object>>>(jsonstring);
 
-                    string jsonstring = file.ReadToEnd();
-
-                    ListAirports = JsonConvert.DeserializeObject<IDictionary<string, IDictionary<string, object>>>(jsonstring);
-               
-                LoggingHelper.LogBehavior(">>> Done loading airports.json.");
+                LoggingHelper.LogBehavior($">>> Done converting {resourceFileName} file ''.");
             }
 
 
@@ -85,7 +82,7 @@ namespace NiceAirplanesRadar
             // procurar por ICAO
             else if (!String.IsNullOrEmpty(iata))
             {
-                var airportByICAO = ListAirports.Where(s => s.Value["ICAO"].ToString() == iata);
+                var airportByICAO = ListAirports.Where(s => s.Value.ContainsKey("ICAO") && s.Value["ICAO"].ToString() == iata);
 
                 if (airportByICAO.Any())
                 {
@@ -104,10 +101,10 @@ namespace NiceAirplanesRadar
                     Country = selectedAirport["Country"].ToString(),
                     Name = selectedAirport["Name"].ToString(),
                     IATA = iata,
-                    Position = new GeoPosition(selectedAirport["Lat"].ToString(),selectedAirport["Long"].ToString()),
+                    Position = new GeoPosition(selectedAirport["Lat"].ToString(), selectedAirport["Long"].ToString()),
                     IsValid = true,
                     ICAO = selectedAirport["ICAO"].ToString(),
-                    Altitude = Convert.ToInt32( selectedAirport["Alt"].ToString()),
+                    Altitude = Convert.ToInt32(selectedAirport["Alt"].ToString()),
                     ListRunways = new List<Runway>()
                 };
 
@@ -143,9 +140,10 @@ namespace NiceAirplanesRadar
                 return compare.IATA == this.IATA;
         }
 
-        public override int GetHashCode(){
+        public override int GetHashCode()
+        {
             return this.ICAO.GetHashCode();
         }
-        
+
     }
 }
