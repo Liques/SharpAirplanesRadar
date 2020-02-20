@@ -1,11 +1,11 @@
-# Nice Airplane Radar
-:airplane:Nice Airplane Radar is nice and cool loader of real world air traffic. It is possible to get list of airplanes from networks like FlightRadar24, OpenSky Network and ModeSMixer2.
+# Nice Airplanes Radar
+:airplane:Nice Airplanes Radar is nice and cool loader of real world air traffic. It is possible to get list of airplanes from networks like FlightRadar24, OpenSky Network and ModeSMixer2.
 
 [![NuGet Badge](https://buildstats.info/nuget/NiceAirplanesRadar)](https://www.nuget.org/packages/NiceAirplanesRadar/)
 
 ## Sources Networks
 
-To load real world air traffic, the Nice Airplane Radar could load data from these networks:
+To load real world air traffic, the Nice Airplanes Radar could load data from these networks:
 
 | Source Networks | README |
 | ------ | ------ |
