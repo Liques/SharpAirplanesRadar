@@ -9,42 +9,45 @@ namespace NiceAirplanesRadar
 {
     public class AircraftModel
     {
+        private const string resourceFileName = "aircraftmodels.json";
         public string Name { get; set; }
         public string ICAO { get; set; }
         public bool IsValid { get; set; }
         public AircraftCategory Type { get; set; }
-        
+        static IDictionary<string, IDictionary<string, string>> list;
+
         private AircraftModel()
         {
-          
+
         }
 
         public static AircraftModel GetByICAO(string icao)
         {
             try
             {
-                StreamReader file = File.OpenText(MultiOSFileSupport.ResourcesFolder + "aircraftmodels.json");
-
-                string jsonstring = file.ReadToEnd();
-
-                var listNames = JsonConvert.DeserializeObject<IDictionary<string, IDictionary<string, string>>>(jsonstring);
+                if (list == null)
+                {
+                    string jsonstring = ResourceHelper.LoadExternalResource(resourceFileName);
+                    list = JsonConvert.DeserializeObject<IDictionary<string, IDictionary<string, string>>>(jsonstring);
+                    LoggingHelper.LogBehavior($">>> Done converting {resourceFileName} file ''.");
+                }
 
                 string name = String.Empty;
 
                 if (String.IsNullOrEmpty(icao))
                     icao = string.Empty;
 
-                var nameReg = listNames.Keys.Where(s => icao.StartsWith(s)).FirstOrDefault();
+                var nameReg = list.Keys.Where(s => icao.StartsWith(s)).FirstOrDefault();
                 nameReg = (String.IsNullOrEmpty(nameReg)) ? "" : nameReg;
 
                 AircraftModel model = new AircraftModel();
                 model.ICAO = icao;
                 model.IsValid = false;
 
-                if (listNames.ContainsKey(nameReg))
+                if (list.ContainsKey(nameReg))
                 {
-                    model.Name = listNames[nameReg]["Name"];
-                    model.Type = (AircraftCategory)System.Enum.Parse(typeof(AircraftCategory), listNames[nameReg]["Type"]);
+                    model.Name = list[nameReg]["Name"];
+                    model.Type = list[nameReg].ContainsKey("Type") ? (AircraftCategory)System.Enum.Parse(typeof(AircraftCategory), list[nameReg]["Type"]) : AircraftCategory.NoModel;
                     model.IsValid = true;
 
                     if (model.Type == AircraftCategory.NoModel)
@@ -59,7 +62,7 @@ namespace NiceAirplanesRadar
             }
             catch (Exception e)
             {
-                throw new ArgumentException(@"\Resources\aircraftmodels.json",e);
+                throw new ArgumentException(resourceFileName, e);
             }
 
         }
@@ -71,5 +74,5 @@ namespace NiceAirplanesRadar
 
     }
 
-    
+
 }

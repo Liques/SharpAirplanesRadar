@@ -11,6 +11,7 @@ namespace NiceAirplanesRadar
     /// </summary>
     public class Airline
     {
+        private const string resourceFileName = "airlines.json";
         public string Country { get; set; }
         public string Name { get; set; }
         public string IATA { get; set; }
@@ -19,21 +20,21 @@ namespace NiceAirplanesRadar
 
         public static Airline GetAirlineByFlight(string flight)
         {
-            string iata = (!String.IsNullOrEmpty(flight) && flight.Length >=4) ? flight.Substring(0, 3) : flight;
+            string iata = (!String.IsNullOrEmpty(flight) && flight.Length >= 4) ? flight.Substring(0, 3) : flight;
             if (listAirlines == null)
             {
                 try
                 {
-                    StreamReader file = File.OpenText(MultiOSFileSupport.ResourcesFolder + "airlines.json");
-
-                    string jsonstring = file.ReadToEnd();
+                    string jsonstring = ResourceHelper.LoadExternalResource(resourceFileName);
 
                     listAirlines = JsonConvert.DeserializeObject<IDictionary<string, IDictionary<string, object>>>(jsonstring);
+
+                    LoggingHelper.LogBehavior($">>> Done converting {resourceFileName} file ''.");
 
                 }
                 catch (Exception e)
                 {
-                    throw new ArgumentException(@"\Resources\airlines.json",e);
+                    throw new ArgumentException(resourceFileName, e);
                 }
 
             }
@@ -48,7 +49,7 @@ namespace NiceAirplanesRadar
                 {
                     IATA = iata,
                     Country = selectedAirline["Country"].ToString(),
-                    Name = selectedAirline["FullName"].ToString(),
+                    Name = selectedAirline.ContainsKey("FullName") ? selectedAirline["FullName"].ToString() : String.Empty,
                 };
             }
             else

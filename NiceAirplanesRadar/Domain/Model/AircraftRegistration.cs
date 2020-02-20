@@ -12,6 +12,7 @@ namespace NiceAirplanesRadar
     /// </summary>
     public class AircraftRegistration
     {
+        private const string resourceFileName = "aircraftregistration.json";
         public string Name { get; set; }
         public string Country { get; set; }
         public bool IsValid { get; set; }
@@ -26,10 +27,10 @@ namespace NiceAirplanesRadar
             }
             catch (Exception e)
             {
-                throw new ArgumentException("Aircraft Registration error",e);
+                throw new ArgumentException("Aircraft Registration error", e);
             }
         }
-        
+
         public static implicit operator AircraftRegistration(string registration)
         {
             return new AircraftRegistration(registration);
@@ -42,25 +43,22 @@ namespace NiceAirplanesRadar
         /// <returns></returns>
         private static string GetCountryRegistration(string registration)
         {
-            
-                LoggingHelper.LogBehavior(">>> Loading aircraftregistration.json...");
-                StreamReader file = File.OpenText(MultiOSFileSupport.ResourcesFolder + "aircraftregistration.json");
+            string jsonstring = ResourceHelper.LoadExternalResource(resourceFileName);
 
+            var listCountires = JsonConvert.DeserializeObject<IDictionary<string, string>>(jsonstring);
 
-                var listCountires = JsonConvert.DeserializeObject<IDictionary<string, string>>(file.ReadToEnd());
+            string country = String.Empty;
+            var countryReg = listCountires.Keys.Where(s => registration.StartsWith(s)).FirstOrDefault();
+            countryReg = (String.IsNullOrEmpty(countryReg)) ? "" : countryReg;
 
-                string country = String.Empty;
-                var countryReg = listCountires.Keys.Where(s => registration.StartsWith(s)).FirstOrDefault();
-                countryReg = (String.IsNullOrEmpty(countryReg)) ? "" : countryReg;
+            if (listCountires.ContainsKey(countryReg))
+            {
+                country = listCountires[countryReg];
+            }
 
-                if (listCountires.ContainsKey(countryReg))
-                {
-                    country = listCountires[countryReg];
-                }
+            LoggingHelper.LogBehavior($">>> Done converting {resourceFileName} file ''.");
 
-                LoggingHelper.LogBehavior(">>> Done loading aircraftregistration.json...");
-
-                return country;
+            return country;
         }
 
         public override string ToString()
