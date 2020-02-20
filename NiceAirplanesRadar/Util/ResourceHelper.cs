@@ -7,7 +7,7 @@ namespace NiceAirplanesRadar.Util
 {
     internal static class ResourceHelper
     {
-        private const string resourceFolderUrl = "https://raw.githubusercontent.com/Liques/NiceAirplanesRadar/master/NiceAirplanesRadar/Resources/";
+        private const string resourceFolderUrl = "https://raw.githubusercontent.com/Liques/NiceAirplanesRadar/master/Resources/";
         private const string resourceFoldelLocal = "";
         public static string LoadExternalResource(string fileName)
         {
