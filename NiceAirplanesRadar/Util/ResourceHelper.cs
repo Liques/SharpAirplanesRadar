@@ -16,7 +16,7 @@ namespace NiceAirplanesRadar.Util
             var fileLocation = fileName;
             string fileContent = String.Empty;
 
-            if (!File.Exists(fileLocation))
+            if (!File.Exists(fileLocation)  && System.IO.File.GetLastWriteTime(fileName).AddDays(15) < DateTime.Now)
             {
                 try
                 {
