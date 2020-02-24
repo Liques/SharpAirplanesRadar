@@ -11,7 +11,7 @@ namespace NiceAirplanesRadar
         public static bool DebugMode { get { return LoggingHelper.ShowBehaviorLog; } set { LoggingHelper.ShowBehaviorLog = value; } }
         public bool IsCacheEnabled { get; set; }
 
-        public AirplanesRadar(SourceAPI sourceTypeEnum, bool isCacheEnabled = true)
+        public AirplanesRadar(SourceAPI sourceTypeEnum, bool isCacheEnabled = false)
         {
             source = (ServiceAPI)Activator.CreateInstance(Type.GetType($"{typeof(ServiceAPI).Namespace}.{Enum.GetName(typeof(SourceAPI),sourceTypeEnum)}Service"));
             this.IsCacheEnabled = isCacheEnabled;
