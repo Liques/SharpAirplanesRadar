@@ -53,10 +53,10 @@ namespace NiceAirplanesRadar.Services
                     var newAircraft = new Aircraft(
                                                         hexCode: hexcode,
                                                         flightName: flight,
-                                                        altitude: String.IsNullOrEmpty(altitude) ? 0 : Convert.ToDouble(altitude, CultureInfo.InvariantCulture),
+                                                        altitude: AltitudeMetric.FromFoot(String.IsNullOrEmpty(altitude) ? 0 : Convert.ToDouble(altitude, CultureInfo.InvariantCulture)),
                                                         latitude: String.IsNullOrEmpty(latitude) ? 0 : Convert.ToDouble(latitude, CultureInfo.InvariantCulture),
                                                         longitude: String.IsNullOrEmpty(longitude) ? 0 : Convert.ToDouble(longitude, CultureInfo.InvariantCulture),
-                                                        speed: String.IsNullOrEmpty(speed) ? 0 : Convert.ToDouble(speed, CultureInfo.InvariantCulture),
+                                                        speed: SpeedMetric.FromKilometerPerHour(String.IsNullOrEmpty(speed) ? 0 : Convert.ToDouble(speed, CultureInfo.InvariantCulture)),
                                                         verticalSpeed: String.IsNullOrEmpty(verticalSpeed) ? 0 : Convert.ToDouble(verticalSpeed, CultureInfo.InvariantCulture),
                                                         direction: String.IsNullOrEmpty(direction) ? 0 : Convert.ToDouble(direction, CultureInfo.InvariantCulture),
                                                         registration: registration, 

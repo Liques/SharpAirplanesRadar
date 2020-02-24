@@ -11,29 +11,13 @@ namespace NiceAirplanesRadar
         public static bool DebugMode { get { return LoggingHelper.ShowBehaviorLog; } set { LoggingHelper.ShowBehaviorLog = value; } }
         public bool IsCacheEnabled { get; set; }
 
-        public AirplanesRadar(SourceAPI sourceTypeEnum, bool isCacheEnabled = true)
+        public AirplanesRadar(SourceAPI sourceTypeEnum, bool isCacheEnabled = false)
         {
-            Type serviceType = null;
-            switch (sourceTypeEnum)
-            {
-                case SourceAPI.OpenSky:
-                    serviceType = typeof(OpenSkyService);
-                    break;
-                case SourceAPI.FlightRadar24:
-                    serviceType = typeof(FlightRadar24Service);
-                    break;
-                case SourceAPI.ModeSMixer2:
-                    serviceType = typeof(ModeSMixer2Service);
-                    break;
-                default:
-                    throw new NotSupportedException();
-            }
-
-            source = (ServiceAPI)Activator.CreateInstance(serviceType);
+            source = (ServiceAPI)Activator.CreateInstance(Type.GetType($"{typeof(ServiceAPI).Namespace}.{Enum.GetName(typeof(SourceAPI),sourceTypeEnum)}Service"));
             this.IsCacheEnabled = isCacheEnabled;
 
             LoggingHelper.LogBehavior("> INIT basic data...");
-            var fooAirplane = new Aircraft("0", "0", 0, 0, 0, 0, 0, 0, "", "", "A319", "0", false);
+            var fooAirplane = new Aircraft("0", "0", AltitudeMetric.FromMeter(0), 0, 0, SpeedMetric.FromKnot(0), 0, 0, "", "", "A319", "0", false);
             LoggingHelper.LogBehavior("> DONE basic data.");
         }
 

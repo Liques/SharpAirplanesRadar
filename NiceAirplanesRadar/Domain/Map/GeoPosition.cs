@@ -17,20 +17,23 @@ namespace NiceAirplanesRadar
         public double Latitude { get; private set; }
         public double Longitude { get; private set; }
         public string Description { get; set; }
+        public AltitudeMetric Altitude { get; set; }
 
-        public GeoPosition(double latitude, double longitude)
+        public GeoPosition(double latitude, double longitude, AltitudeMetric altitude = null)
         {
             this.Latitude = latitude;
             this.Longitude = longitude;
+            this.Altitude = altitude;
         }
         
-        public GeoPosition(string latitude, string longitude)
+        public GeoPosition(string latitude, string longitude, AltitudeMetric altitude = null)
         {
             latitude = !String.IsNullOrEmpty(latitude) ? latitude : "0";
             longitude = !String.IsNullOrEmpty(longitude) ? longitude : "0";
             
             this.Latitude = double.Parse(latitude);
             this.Longitude = double.Parse(longitude);
+            this.Altitude = altitude;
         }
         
         public double Distance(GeoPosition target) {

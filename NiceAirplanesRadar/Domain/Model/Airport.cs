@@ -11,19 +11,19 @@ namespace NiceAirplanesRadar
     public class Airport
     {
         private const string resourceFileName = "airports.json";
-        public string City { get; set; }
-        public string Country { get; set; }
-        public string Name { get; set; }
-        public string IATA { get; set; }
-        public string ICAO { get; set; }
-        public GeoPosition Position { get; set; }
-        public List<Runway> ListRunways { get; set; }
-        public bool IsValid { get; set; }
-        public int Altitude { get; set; }
-        public string GeoName { get; set; }
-        public string GeoNameState { get; set; }
-        public string GeoCountry { get; set; }
-        public string TimeZone { get; set; }
+        public string City { get; private set; }
+        public string Country { get; private set; }
+        public string Name { get; private set; }
+        public string IATA { get; private set; }
+        public string ICAO { get; private set; }
+        public GeoPosition Position { get; private set; }
+        public List<Runway> ListRunways { get; private set; }
+        public bool IsValid { get; private set; }
+        public AltitudeMetric Altitude { get { return this.Position.Altitude; } }
+        public string GeoName { get; private set; }
+        public string GeoNameState { get; private set; }
+        public string GeoCountry { get; private set; }
+        public string TimeZone { get; private set; }
 
 
         static public IDictionary<string, IDictionary<string, object>> ListAirports;
@@ -101,10 +101,9 @@ namespace NiceAirplanesRadar
                     Country = selectedAirport["Country"].ToString(),
                     Name = selectedAirport["Name"].ToString(),
                     IATA = iata,
-                    Position = new GeoPosition(selectedAirport["Lat"].ToString(), selectedAirport["Long"].ToString()),
+                    Position = new GeoPosition(selectedAirport["Lat"].ToString(), selectedAirport["Long"].ToString(), AltitudeMetric.FromFoot(double.Parse(selectedAirport["Alt"].ToString()))),
                     IsValid = true,
                     ICAO = selectedAirport["ICAO"].ToString(),
-                    Altitude = Convert.ToInt32(selectedAirport["Alt"].ToString()),
                     ListRunways = new List<Runway>()
                 };
 

@@ -57,7 +57,7 @@ namespace NiceAirplanesRadar.Services
         public void LoadCache(bool cacheEnabled, string customUrl = null)
         {
 
-            if (cacheEnabled && !String.IsNullOrEmpty(CacheFileName) && System.IO.File.Exists(CacheFileName))
+            if (cacheEnabled && !String.IsNullOrEmpty(CacheFileName) && System.IO.File.Exists(CacheFileName) && System.IO.File.GetLastWriteTime(CacheFileName).AddMinutes(1) < DateTime.Now)
             {
                 LoggingHelper.LogBehavior("> Trying to load CACHE airplane list...");
                 var file = System.IO.File.OpenText(CacheFileName);
@@ -98,7 +98,7 @@ namespace NiceAirplanesRadar.Services
                 }
                 catch (Exception e)
                 {
-                    throw new ArgumentException("Open Sky is out.", e);
+                    throw new ArgumentException("Server is out.", e);
                 }
 
                 jsonData = response.Content.ReadAsStringAsync().Result;

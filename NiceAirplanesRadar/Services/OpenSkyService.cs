@@ -31,14 +31,14 @@ namespace NiceAirplanesRadar.Services
             var lastAirplanes = lastAirplanesRaw.Select(s => new Aircraft(
                                                         hexCode: s[0],
                                                         flightName: s[1], // flightname
-                                                        altitude: String.IsNullOrEmpty(s[7]) ? 0 : Convert.ToDouble(s[7], CultureInfo.InvariantCulture), // 
-                                                        latitude: String.IsNullOrEmpty(s[6]) ? 0 : Convert.ToDouble(s[6], CultureInfo.InvariantCulture), // 
-                                                        longitude: String.IsNullOrEmpty(s[5]) ? 0 : Convert.ToDouble(s[5], CultureInfo.InvariantCulture), // 
-                                                        speed: String.IsNullOrEmpty(s[9]) ? 0 : Convert.ToDouble(s[9], CultureInfo.InvariantCulture), // 
-                                                        verticalSpeed: String.IsNullOrEmpty(s[11]) ? 0 : Convert.ToDouble(s[11], CultureInfo.InvariantCulture), // vertical speed
-                                                        direction: String.IsNullOrEmpty(s[10]) ? 0 : Convert.ToDouble(s[10], CultureInfo.InvariantCulture), // direction
-                                                        registration: s[2], // registration
-                                                        isOnGround: Boolean.Parse(s[8]),//is on groud
+                                                        altitude: AltitudeMetric.FromMeter(String.IsNullOrEmpty(s[7]) ? 0 : Convert.ToDouble(s[7], CultureInfo.InvariantCulture)),
+                                                        latitude: String.IsNullOrEmpty(s[6]) ? 0 : Convert.ToDouble(s[6], CultureInfo.InvariantCulture),
+                                                        longitude: String.IsNullOrEmpty(s[5]) ? 0 : Convert.ToDouble(s[5], CultureInfo.InvariantCulture),
+                                                        speed: SpeedMetric.FromKilometerPerHour(String.IsNullOrEmpty(s[9]) ? 0 : Convert.ToDouble(s[9], CultureInfo.InvariantCulture) * 3.6),
+                                                        verticalSpeed: String.IsNullOrEmpty(s[11]) ? 0 : Convert.ToDouble(s[11], CultureInfo.InvariantCulture),
+                                                        direction: String.IsNullOrEmpty(s[10]) ? 0 : Convert.ToDouble(s[10], CultureInfo.InvariantCulture),
+                                                        registration: s[2],
+                                                        isOnGround: Boolean.Parse(s[8]),
                                                         from: String.Empty,
                                                         to: String.Empty,
                                                         model: String.Empty
