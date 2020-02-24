@@ -26,6 +26,6 @@ Would you like to see the airplanes around your city? It is very easy too, you j
 
 ```csharp
 var client = new AirplanesRadar(SourceAPI.OpenSky);
-// Let's see how everything is the air traffic in Los Angeles
+// Let's see how is the air traffic in Los Angeles
 var listOfWorldAirplanes = client.GetAirplanes(Airport.GetAirportByICAO("KLAX").Position);
 ```
