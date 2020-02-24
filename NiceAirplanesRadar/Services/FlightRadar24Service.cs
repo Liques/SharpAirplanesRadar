@@ -35,14 +35,14 @@ namespace NiceAirplanesRadar.Services
             var lastAirplanes = lastAirplanesRaw.Select(s => new Aircraft(
                                                         hexCode: s[0].ToLower(),
                                                         flightName: s[16],
-                                                        altitude: String.IsNullOrEmpty(s[6]) ? 0 : Convert.ToDouble(s[6], CultureInfo.InvariantCulture), // 
-                                                        latitude: String.IsNullOrEmpty(s[1]) ? 0 : Convert.ToDouble(s[1], CultureInfo.InvariantCulture), // 
-                                                        longitude: String.IsNullOrEmpty(s[2]) ? 0 : Convert.ToDouble(s[2], CultureInfo.InvariantCulture), // 
-                                                        speed: String.IsNullOrEmpty(s[5]) ? 0 : Convert.ToDouble(s[5], CultureInfo.InvariantCulture), // 
-                                                        verticalSpeed: String.IsNullOrEmpty(s[6]) ? 0 : Convert.ToDouble(s[6], CultureInfo.InvariantCulture), // vertical speed
-                                                        direction: String.IsNullOrEmpty(s[4]) ? 0 : Convert.ToDouble(s[4], CultureInfo.InvariantCulture), // direction
-                                                        registration: s[9].ToString(), // registration
-                                                        isOnGround: false,//is on groud
+                                                        altitude: AltitudeMetric.FromFoot(String.IsNullOrEmpty(s[4]) ? 0 : Convert.ToDouble(s[4], CultureInfo.InvariantCulture)),
+                                                        latitude: String.IsNullOrEmpty(s[1]) ? 0 : Convert.ToDouble(s[1], CultureInfo.InvariantCulture),
+                                                        longitude: String.IsNullOrEmpty(s[2]) ? 0 : Convert.ToDouble(s[2], CultureInfo.InvariantCulture),
+                                                        speed: SpeedMetric.FromKnot(String.IsNullOrEmpty(s[5]) ? 0 : Convert.ToDouble(s[5], CultureInfo.InvariantCulture)),
+                                                        verticalSpeed: String.IsNullOrEmpty(s[6]) ? 0 : Convert.ToDouble(s[6], CultureInfo.InvariantCulture),
+                                                        direction: String.IsNullOrEmpty(s[3]) ? 0 : Convert.ToDouble(s[3], CultureInfo.InvariantCulture),
+                                                        registration: s[9].ToString(),
+                                                        isOnGround: s[4] == "0",
                                                         from: s[11],
                                                         to: s[12],
                                                         model: s[8]

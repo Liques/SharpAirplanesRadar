@@ -11,9 +11,9 @@ namespace NiceAirplanesRadar
         public string ID { get; private set; }
         public AircraftRegistration Registration { get; private set; }
         public AircraftModel Model { get; private set; }
-        public double Altitude { get; private set; }
+        public AltitudeMetric Altitude { get; private set; }
         public double VerticalSpeed { get; private set; }
-        public double Speed { get; private set; }
+        public SpeedMetric Speed { get; private set; }
         public double Direction { get; private set; }
         public GeoPosition Position { get; private set; }
         public string FlightName { get; private set; }
@@ -27,8 +27,9 @@ namespace NiceAirplanesRadar
         public Aircraft PreviousAirplane { get; set; }
 
         
-        public Aircraft(string hexCode, string flightName, double altitude, double latitude, double longitude, double speed, double verticalSpeed, double direction, string from, string to, string model, string registration, bool isOnGround)
+        public Aircraft(string hexCode, string flightName, AltitudeMetric altitude, double latitude, double longitude, SpeedMetric speed, double verticalSpeed, double direction, string from, string to, string model, string registration, bool isOnGround)
         {
+
             var airplaneDatabaseData = AircraftDatabase.GetByICAO(hexCode);
 
             this.ID = hexCode;
@@ -46,6 +47,7 @@ namespace NiceAirplanesRadar
             this.DateCreation = DateTime.Now;
             this.IsOnGround = isOnGround;
             this.DateExpiration = DateTime.Now.AddHours(1);
+
         }
 
         public override string ToString()

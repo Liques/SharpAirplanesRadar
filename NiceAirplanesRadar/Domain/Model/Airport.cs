@@ -19,7 +19,7 @@ namespace NiceAirplanesRadar
         public GeoPosition Position { get; set; }
         public List<Runway> ListRunways { get; set; }
         public bool IsValid { get; set; }
-        public int Altitude { get; set; }
+        public AltitudeMetric Altitude { get; set; }
         public string GeoName { get; set; }
         public string GeoNameState { get; set; }
         public string GeoCountry { get; set; }
@@ -104,7 +104,7 @@ namespace NiceAirplanesRadar
                     Position = new GeoPosition(selectedAirport["Lat"].ToString(), selectedAirport["Long"].ToString()),
                     IsValid = true,
                     ICAO = selectedAirport["ICAO"].ToString(),
-                    Altitude = Convert.ToInt32(selectedAirport["Alt"].ToString()),
+                    Altitude = AltitudeMetric.FromFoot(double.Parse(selectedAirport["Alt"].ToString())),
                     ListRunways = new List<Runway>()
                 };
 
