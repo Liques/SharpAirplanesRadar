@@ -19,21 +19,21 @@ namespace NiceAirplanesRadar
         public string Description { get; set; }
         public AltitudeMetric Altitude { get; set; }
 
-        public GeoPosition(double latitude, double longitude, double altitudeFoot = 0)
+        public GeoPosition(double latitude, double longitude, AltitudeMetric altitude = null)
         {
             this.Latitude = latitude;
             this.Longitude = longitude;
-            this.Altitude = altitudeFoot != 0 ? AltitudeMetric.FromFoot(altitudeFoot) : null;
+            this.Altitude = altitude;
         }
         
-        public GeoPosition(string latitude, string longitude, string altitudeFoot = "")
+        public GeoPosition(string latitude, string longitude, AltitudeMetric altitude = null)
         {
             latitude = !String.IsNullOrEmpty(latitude) ? latitude : "0";
             longitude = !String.IsNullOrEmpty(longitude) ? longitude : "0";
             
             this.Latitude = double.Parse(latitude);
             this.Longitude = double.Parse(longitude);
-            this.Altitude = !String.IsNullOrEmpty(altitudeFoot) ? AltitudeMetric.FromFoot(double.Parse(altitudeFoot)) : null;
+            this.Altitude = altitude;
         }
         
         public double Distance(GeoPosition target) {

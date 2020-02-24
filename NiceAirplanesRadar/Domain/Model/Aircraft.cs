@@ -11,7 +11,7 @@ namespace NiceAirplanesRadar
         public string ID { get; private set; }
         public AircraftRegistration Registration { get; private set; }
         public AircraftModel Model { get; private set; }
-        public AltitudeMetric Altitude { get; private set; }
+        public AltitudeMetric Altitude { get { return this.Position.Altitude; } }
         public double VerticalSpeed { get; private set; }
         public SpeedMetric Speed { get; private set; }
         public double Direction { get; private set; }
@@ -34,12 +34,11 @@ namespace NiceAirplanesRadar
 
             this.ID = hexCode;
             this.Model = airplaneDatabaseData != null ? AircraftModel.GetByICAO(airplaneDatabaseData.AircraftModelName) : null;
-            this.Altitude = altitude;
             this.Direction = direction;
             this.From = Airport.GetAirportByIata(from);
             this.FlightName = flightName.Trim();
             this.Airline = Airline.GetAirlineByFlight(flightName);
-            this.Position = new GeoPosition(latitude,longitude);            
+            this.Position = new GeoPosition(latitude,longitude, altitude);            
             this.Registration = new AircraftRegistration(registration);
             this.Speed = speed;
             this.To = Airport.GetAirportByIata(to);
