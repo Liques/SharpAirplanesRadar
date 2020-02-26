@@ -6,12 +6,14 @@ namespace NiceAirplanesRadar
     /// <summary>
     /// Object that refers to airports runways
     /// </summary>
-    public class Runway
+    public class Runway : IRealWorldObject
     {
         public GeoPosition PositionSideOne { get; private set; }
         public GeoPosition PositionSideTwo { get; private set; }
-        
-        public string IsAirplaneInFinalRunway(Aircraft airplane, double direction = 0)
+        public AltitudeMetric Altitude { get {return PositionSideOne.Altitude; }}
+        public GeoPosition Position { get {return PositionSideOne; }}
+
+        public string IsAirplaneInFinalRunway(IAircraft airplane, double direction = 0)
         {
             string name = String.Empty;
             double degreesAperture = 5;
@@ -32,7 +34,7 @@ namespace NiceAirplanesRadar
             return name;
         }
 
-        public string IsAirplaneInFinalRunway(Aircraft airplane)
+        public string IsAirplaneInFinalRunway(IAircraft airplane)
         {
 
             var direction = MapMathHelper.GetAngle(airplane.PreviousAirplane.Position.Longitude, airplane.Position.Longitude, airplane.PreviousAirplane.Position.Latitude, airplane.Position.Latitude);

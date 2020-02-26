@@ -21,14 +21,14 @@ namespace NiceAirplanesRadar.Services
         {
         }
         
-        protected override IEnumerable<Aircraft> Conversor(string data)
+        protected override IEnumerable<IAircraft> Conversor(string data)
         {
             var jsonData = JsonConvert.DeserializeObject<Dictionary<string, object>>(data);
             var lastAirplanesRaw = JsonConvert.DeserializeObject<List<string[]>>(jsonData["states"].ToString());
 
             var raw = lastAirplanesRaw.FirstOrDefault();
 
-            var lastAirplanes = lastAirplanesRaw.Select(s => new Aircraft(
+            var lastAirplanes = lastAirplanesRaw.Select(s => new Airplane(
                                                         hexCode: s[0],
                                                         flightName: s[1], // flightname
                                                         altitude: AltitudeMetric.FromMeter(String.IsNullOrEmpty(s[7]) ? 0 : Convert.ToDouble(s[7], CultureInfo.InvariantCulture)),
