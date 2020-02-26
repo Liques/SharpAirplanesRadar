@@ -17,11 +17,11 @@ namespace NiceAirplanesRadar
             this.IsCacheEnabled = isCacheEnabled;
 
             LoggingHelper.LogBehavior("> INIT basic data...");
-            var fooAirplane = new Aircraft("0", "0", AltitudeMetric.FromMeter(0), 0, 0, SpeedMetric.FromKnot(0), 0, 0, "", "", "A319", "0", false);
+            var fooAirplane = new Airplane("0", "0", AltitudeMetric.FromMeter(0), 0, 0, SpeedMetric.FromKnot(0), 0, 0, "", "", "A319", "0", false);
             LoggingHelper.LogBehavior("> DONE basic data.");
         }
 
-        public IEnumerable<Aircraft> GetAirplanes(GeoPosition centerPosition = null, double radiusDistanceKilometers = 100)
+        public IEnumerable<IAircraft> GetAirplanes(GeoPosition centerPosition = null, double radiusDistanceKilometers = 100)
         {
             return source.GetAirplanes(centerPosition, radiusDistanceKilometers, this.IsCacheEnabled);
         }

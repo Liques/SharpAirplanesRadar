@@ -15,9 +15,9 @@ namespace NiceAirplanesRadar.Services
 
         }
 
-        protected override IEnumerable<Aircraft> Conversor(string data)
+        protected override IEnumerable<IAircraft> Conversor(string data)
         {
-            var aircraftList = new List<Aircraft>();
+            var aircraftList = new List<IAircraft>();
 
             IDictionary<string, object> routes_list = JsonConvert.DeserializeObject<Dictionary<string, object>>(data);
             routes_list = JsonConvert.DeserializeObject<Dictionary<string, object>>(routes_list["stats"].ToString());
@@ -50,7 +50,7 @@ namespace NiceAirplanesRadar.Services
 
                 if (!String.IsNullOrEmpty(altitude))
                 {
-                    var newAircraft = new Aircraft(
+                    var newAircraft = new Airplane(
                                                         hexCode: hexcode,
                                                         flightName: flight,
                                                         altitude: AltitudeMetric.FromFoot(String.IsNullOrEmpty(altitude) ? 0 : Convert.ToDouble(altitude, CultureInfo.InvariantCulture)),
@@ -75,7 +75,7 @@ namespace NiceAirplanesRadar.Services
             return aircraftList;
         }
 
-        public override IEnumerable<Aircraft> GetAirplanes(GeoPosition centerPosition = null, double radiusDistanceKilometers = 100, bool cacheEnabled = true, string customUrl = "")
+        public override IEnumerable<IAircraft> GetAirplanes(GeoPosition centerPosition = null, double radiusDistanceKilometers = 100, bool cacheEnabled = true, string customUrl = "")
         {
             if (String.IsNullOrEmpty(customUrl))
             {

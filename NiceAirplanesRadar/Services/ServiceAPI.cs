@@ -18,7 +18,7 @@ namespace NiceAirplanesRadar.Services
         private string CacheFileName { get; set; }
         public DateTime LastUpdate { get; private set; }
         public TimeSpan UpdateInterval { get; set; }
-        protected IEnumerable<Aircraft> LastAirplanes { get; private set; }
+        protected IEnumerable<IAircraft> LastAirplanes { get; private set; }
         private bool isUpdating = false;
 
         public ServiceAPI(string url, string cacheFileName, TimeSpan updateInterval)
@@ -29,9 +29,9 @@ namespace NiceAirplanesRadar.Services
             this.LastUpdate = DateTime.MinValue;
         }
 
-        protected abstract IEnumerable<Aircraft> Conversor(string data);
+        protected abstract IEnumerable<IAircraft> Conversor(string data);
 
-        public virtual IEnumerable<Aircraft> GetAirplanes(GeoPosition centerPosition = null, double radiusDistanceKilometers = 100, bool cacheEnabled = true, string customUrl = "")
+        public virtual IEnumerable<IAircraft> GetAirplanes(GeoPosition centerPosition = null, double radiusDistanceKilometers = 100, bool cacheEnabled = true, string customUrl = "")
         {
             if (this.LastUpdate + this.UpdateInterval <= DateTime.Now)
             {

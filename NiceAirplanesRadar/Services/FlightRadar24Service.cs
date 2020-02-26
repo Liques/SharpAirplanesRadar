@@ -21,7 +21,7 @@ namespace NiceAirplanesRadar.Services
 
         }
 
-        protected override IEnumerable<Aircraft> Conversor(string data)
+        protected override IEnumerable<IAircraft> Conversor(string data)
         {
 
             var dataJson = JsonConvert.DeserializeObject<Dictionary<string, object>>(data);
@@ -32,7 +32,7 @@ namespace NiceAirplanesRadar.Services
 
             var raw = lastAirplanesRaw.FirstOrDefault();
 
-            var lastAirplanes = lastAirplanesRaw.Select(s => new Aircraft(
+            var lastAirplanes = lastAirplanesRaw.Select(s => new Airplane(
                                                         hexCode: s[0].ToLower(),
                                                         flightName: s[16],
                                                         altitude: AltitudeMetric.FromFoot(String.IsNullOrEmpty(s[4]) ? 0 : Convert.ToDouble(s[4], CultureInfo.InvariantCulture)),
@@ -52,7 +52,7 @@ namespace NiceAirplanesRadar.Services
 
         }
 
-        public override IEnumerable<Aircraft> GetAirplanes(GeoPosition centerPosition = null, double radiusDistanceKilometers = 100, bool cacheEnabled = true, string customUrl = "")
+        public override IEnumerable<IAircraft> GetAirplanes(GeoPosition centerPosition = null, double radiusDistanceKilometers = 100, bool cacheEnabled = true, string customUrl = "")
         {
             if(centerPosition == null){
                 throw new ArgumentException("FlightRadar24 requires the 'centerPosition' parameter.");

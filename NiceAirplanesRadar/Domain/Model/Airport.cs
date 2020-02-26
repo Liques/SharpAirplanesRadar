@@ -8,7 +8,7 @@ using NiceAirplanesRadar;
 
 namespace NiceAirplanesRadar
 {
-    public class Airport
+    public class Airport : IRealWorldObject
     {
         private const string resourceFileName = "airports.json";
         public string City { get; private set; }

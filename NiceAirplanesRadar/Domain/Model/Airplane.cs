@@ -3,10 +3,11 @@ using NiceAirplanesRadar.Util;
 
 namespace NiceAirplanesRadar
 {
+
     /// <summary>
     /// The main object to refers to a real airplane. It have the main properties of an airplane.
     /// </summary>
-    public class Aircraft
+    public class Airplane : IAircraft
     {
         public string ID { get; private set; }
         public AircraftRegistration Registration { get; private set; }
@@ -16,7 +17,7 @@ namespace NiceAirplanesRadar
         public SpeedMetric Speed { get; private set; }
         public double Direction { get; private set; }
         public GeoPosition Position { get; private set; }
-        public string FlightName { get; private set; }
+        public string Name { get; private set; }
         public Airline Airline { get; private set; }
         public DateTime DateCreation { get; private set; }
         public DateTime DateExpiration { get; set; }
@@ -24,10 +25,10 @@ namespace NiceAirplanesRadar
         public Airport From { get; set; }
         public Airport To { get; set; }
         public bool IsOnGround { get; private set; }
-        public Aircraft PreviousAirplane { get; set; }
+        public IAircraft PreviousAirplane { get; set; }
 
-        
-        public Aircraft(string hexCode, string flightName, AltitudeMetric altitude, double latitude, double longitude, SpeedMetric speed, double verticalSpeed, double direction, string from, string to, string model, string registration, bool isOnGround)
+
+        public Airplane(string hexCode, string flightName, AltitudeMetric altitude, double latitude, double longitude, SpeedMetric speed, double verticalSpeed, double direction, string from, string to, string model, string registration, bool isOnGround)
         {
 
             var airplaneDatabaseData = AircraftDatabase.GetByICAO(hexCode);
@@ -36,9 +37,9 @@ namespace NiceAirplanesRadar
             this.Model = airplaneDatabaseData != null ? AircraftModel.GetByICAO(airplaneDatabaseData.AircraftModelName) : null;
             this.Direction = direction;
             this.From = Airport.GetAirportByIata(from);
-            this.FlightName = flightName.Trim();
+            this.Name = flightName.Trim();
             this.Airline = Airline.GetAirlineByFlight(flightName);
-            this.Position = new GeoPosition(latitude,longitude, altitude);            
+            this.Position = new GeoPosition(latitude, longitude, altitude);
             this.Registration = new AircraftRegistration(registration);
             this.Speed = speed;
             this.To = Airport.GetAirportByIata(to);
@@ -51,7 +52,7 @@ namespace NiceAirplanesRadar
 
         public override string ToString()
         {
-            return $"{this.FlightName} ({this.Model?.ICAO}) {this.Registration})";
+            return $"{this.Name} ({this.Model?.ICAO}) {this.Registration})";
         }
     }
 
