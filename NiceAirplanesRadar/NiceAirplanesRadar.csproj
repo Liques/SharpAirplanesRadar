@@ -4,7 +4,7 @@
     <TargetFramework>netstandard2.0</TargetFramework>
     <PackageId>NiceAirplanesRadar</PackageId>
     <Title>Nice Airplanes Radar</Title>
-    <Version>1.1.0</Version>
+    <Version>1.2.0</Version>
     <Authors>Samuel Liques</Authors>
     <Company>Liques</Company>
     <License>MIT</License>
