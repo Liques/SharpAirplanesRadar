@@ -3,10 +3,6 @@ using System;
 using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
-using System.Net.Http;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
 using NiceAirplanesRadar.Util;
 
 namespace NiceAirplanesRadar.Services
@@ -17,7 +13,7 @@ namespace NiceAirplanesRadar.Services
         private const string cacheFile = "openSky.cache.json";
         private const string url = "https://opensky-network.org/api/states/all";
 
-        public OpenSkyService() : base(url,cacheFile, new TimeSpan(0,1,0))
+        public OpenSkyService(DataLoader servicesDataLoader = null) : base(servicesDataLoader ?? new DataLoader(url),cacheFile, new TimeSpan(0,1,0))
         {
         }
         
