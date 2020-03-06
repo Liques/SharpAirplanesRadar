@@ -7,13 +7,13 @@ namespace NiceAirplanesRadar
 {
     public class AirplanesRadar
     {
-        private ServiceAPI source;
+        private IServiceAPI source;
         public static bool DebugMode { get { return LoggingHelper.ShowBehaviorLog; } set { LoggingHelper.ShowBehaviorLog = value; } }
         public bool IsCacheEnabled { get; set; }
 
-        public AirplanesRadar(SourceAPI sourceTypeEnum, bool isCacheEnabled = false)
+        public AirplanesRadar(IServiceAPI serviceAPI, bool isCacheEnabled = false)
         {
-            source = (ServiceAPI)Activator.CreateInstance(Type.GetType($"{typeof(ServiceAPI).Namespace}.{Enum.GetName(typeof(SourceAPI),sourceTypeEnum)}Service"));
+            source = serviceAPI;
             this.IsCacheEnabled = isCacheEnabled;
 
             LoggingHelper.LogBehavior("> INIT basic data...");

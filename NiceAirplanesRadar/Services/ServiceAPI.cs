@@ -12,7 +12,7 @@ using NiceAirplanesRadar.Util;
 namespace NiceAirplanesRadar.Services
 {
 
-    internal abstract class ServiceAPI
+    internal abstract class ServiceAPI : IServiceAPI
     {
         private string URL { get; set; }
         private string CacheFileName { get; set; }
