@@ -3,9 +3,6 @@ using System;
 using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
-using System.Net.Http;
-using System.Text;
-using System.Threading;
 using System.Threading.Tasks;
 using NiceAirplanesRadar.Util;
 
@@ -16,7 +13,7 @@ namespace NiceAirplanesRadar.Services
     {
         private const string url = "https://data-live.flightradar24.com/zones/fcgi/feed.js?bounds=@latSouth,@latNorth,@lonWest,@lonEst&faa=1&satellite=1&mlat=1&flarm=1&adsb=1&gnd=1&air=1&vehicles=1&estimated=1&maxage=14400&gliders=1&stats=1";
 
-        public FlightRadar24Service() : base(url, null, new TimeSpan(0, 1, 0))
+        public FlightRadar24Service(DataLoader servicesDataLoader = null) : base(servicesDataLoader ?? new DataLoader(url), null, new TimeSpan(0, 1, 0))
         {
 
         }
@@ -52,7 +49,7 @@ namespace NiceAirplanesRadar.Services
 
         }
 
-        public override IEnumerable<IAircraft> GetAirplanes(GeoPosition centerPosition = null, double radiusDistanceKilometers = 100, bool cacheEnabled = true, string customUrl = "")
+        public override Task<IEnumerable<IAircraft>> GetAirplanes(GeoPosition centerPosition = null, double radiusDistanceKilometers = 100, bool cacheEnabled = true, string customUrl = "")
         {
             if(centerPosition == null){
                 throw new ArgumentException("FlightRadar24 requires the 'centerPosition' parameter.");

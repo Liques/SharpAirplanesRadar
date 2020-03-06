@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace NiceAirplanesRadar
 {
@@ -8,7 +9,7 @@ namespace NiceAirplanesRadar
         DateTime LastUpdate { get; }
         TimeSpan UpdateInterval { get; set; }
 
-        IEnumerable<IAircraft> GetAirplanes(GeoPosition centerPosition = null, double radiusDistanceKilometers = 100, bool cacheEnabled = true, string customUrl = "");
+        Task<IEnumerable<IAircraft>> GetAirplanes(GeoPosition centerPosition = null, double radiusDistanceKilometers = 100, bool cacheEnabled = true, string customUrl = "");
         void LoadCache(bool cacheEnabled, string customUrl = null);
     }
 }

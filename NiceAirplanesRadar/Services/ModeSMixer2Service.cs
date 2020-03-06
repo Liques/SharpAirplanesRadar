@@ -4,13 +4,15 @@ using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
 using Newtonsoft.Json.Linq;
+using System.Threading.Tasks;
+using NiceAirplanesRadar.Util;
 
 namespace NiceAirplanesRadar.Services
 {
 
     internal class ModeSMixer2Service : ServiceAPI
     {
-        public ModeSMixer2Service() : base(null, null, new TimeSpan(0, 0, 15))
+        public ModeSMixer2Service(DataLoader servicesDataLoader = null) : base(servicesDataLoader ?? new DataLoader(null), null, new TimeSpan(0, 0, 15))
         {
 
         }
@@ -75,7 +77,7 @@ namespace NiceAirplanesRadar.Services
             return aircraftList;
         }
 
-        public override IEnumerable<IAircraft> GetAirplanes(GeoPosition centerPosition = null, double radiusDistanceKilometers = 100, bool cacheEnabled = true, string customUrl = "")
+        public override Task<IEnumerable<IAircraft>> GetAirplanes(GeoPosition centerPosition = null, double radiusDistanceKilometers = 100, bool cacheEnabled = true, string customUrl = "")
         {
             if (String.IsNullOrEmpty(customUrl))
             {

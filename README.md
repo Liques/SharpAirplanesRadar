@@ -19,13 +19,13 @@ It is only needed to select the network.
 
 ```csharp
 var client = new AirplanesRadar(SourceAPI.OpenSky);
-var listOfWorldAirplanes = client.GetAirplanes();
+var listOfWorldAirplanes = await client.GetAirplanes();
 ```
 
 Would you like to see the airplanes around your city? It is very easy too, you just need to know what is the airport code, actually I meant, the airport [ICAO](https://en.wikipedia.org/wiki/ICAO_airport_code) code from where you wish.
 
 ```csharp
 var client = new AirplanesRadar(SourceAPI.OpenSky);
-// Let's see how everything is the air traffic in Los Angeles
-var listOfWorldAirplanes = client.GetAirplanes(Airport.GetAirportByICAO("KLAX").Position);
+// Let's see how is the air traffic in Los Angeles
+var listOfWorldAirplanes = await client.GetAirplanes(Airport.GetAirportByICAO("KLAX").Position);
 ```

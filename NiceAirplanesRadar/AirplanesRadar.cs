@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using NiceAirplanesRadar.Services;
 using NiceAirplanesRadar.Util;
 
@@ -21,9 +22,9 @@ namespace NiceAirplanesRadar
             LoggingHelper.LogBehavior("> DONE basic data.");
         }
 
-        public IEnumerable<IAircraft> GetAirplanes(GeoPosition centerPosition = null, double radiusDistanceKilometers = 100)
+        public async Task<IEnumerable<IAircraft>> GetAirplanes(GeoPosition centerPosition = null, double radiusDistanceKilometers = 100)
         {
-            return source.GetAirplanes(centerPosition, radiusDistanceKilometers, this.IsCacheEnabled);
+            return await source.GetAirplanes(centerPosition, radiusDistanceKilometers, this.IsCacheEnabled);
         }
 
         /// <summary>
