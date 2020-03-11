@@ -1165,7 +1165,7 @@
   },
   "CPA": {
     "FullName": "Cathay Pacific",
-    "Country": "Hong Kong SAR of China"
+    "Country": "Hong Kong"
   },
   "CPN": {
     "FullName": "Caspian Airlines",
@@ -1205,7 +1205,7 @@
   },
   "CRK": {
     "FullName": "Hong Kong Airlines",
-    "Country": "Hong Kong SAR of China"
+    "Country": "Hong Kong"
   },
   "CRL": {
     "FullName": "Corsairfly",
@@ -2049,7 +2049,7 @@
   },
   "HKE": {
     "FullName": "Hong Kong Express Airways",
-    "Country": "Hong Kong SAR of China"
+    "Country": "Hong Kong"
   },
   "HLF": {
     "FullName": "Hapagfly",

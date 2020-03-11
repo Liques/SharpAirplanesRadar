@@ -3070,7 +3070,7 @@
   },
   "ATF": {
     "City": "Ambato",
-    "Country": "Equador",
+    "Country": "Ecuador",
     "Name": "Chachoan",
     "ICAO": "SEAM",
     "Lat": -1.212067,
@@ -9703,7 +9703,7 @@
   },
   "CUE": {
     "City": "Cuenca",
-    "Country": "Equador",
+    "Country": "Ecuador",
     "Name": "Mariscal Lamar",
     "ICAO": "SECU",
     "Lat": -2.889467,
@@ -13078,7 +13078,7 @@
   },
   "ESM": {
     "City": "Esmeraldas",
-    "Country": "Equador",
+    "Country": "Ecuador",
     "Name": "General Rivadeneira Airport",
     "ICAO": "SETN",
     "Lat": 0.978519,
@@ -15886,7 +15886,7 @@
   },
   "GPS": {
     "City": "Galapagos",
-    "Country": "Equador",
+    "Country": "Ecuador",
     "Name": "Seymour",
     "ICAO": "SEGS",
     "Lat": -0.453758,
@@ -16507,7 +16507,7 @@
   },
   "GYE": {
     "City": "Guayaquil",
-    "Country": "Equador",
+    "Country": "Ecuador",
     "Name": "Jose Joaquin De Olmedo Intl",
     "ICAO": "SEGU",
     "Lat": -2.157419,
@@ -24697,7 +24697,7 @@
   },
   "LGQ": {
     "City": "Lago Agrio",
-    "Country": "Equador",
+    "Country": "Ecuador",
     "Name": "Nueva Loja Airport",
     "ICAO": "SELA",
     "Lat": 0.093056,
@@ -25390,7 +25390,7 @@
   },
   "LOH": {
     "City": "La Toma (Catamayo)",
-    "Country": "Equador",
+    "Country": "Ecuador",
     "Name": "Camilo Ponce Enriquez Airport",
     "ICAO": "SETM",
     "Lat": -3.99589,
@@ -25984,7 +25984,7 @@
   },
   "LTX": {
     "City": "Latacunga",
-    "Country": "Equador",
+    "Country": "Ecuador",
     "Name": "Cotopaxi International Airport",
     "ICAO": "",
     "Lat": -0.5425,
@@ -26884,7 +26884,7 @@
   },
   "MCH": {
     "City": "Machala",
-    "Country": "Equador",
+    "Country": "Ecuador",
     "Name": "General Manuel Serrano",
     "ICAO": "SEMH",
     "Lat": -3.268903,
@@ -27172,7 +27172,7 @@
   },
   "MEC": {
     "City": "Manta",
-    "Country": "Equador",
+    "Country": "Ecuador",
     "Name": "Eloy Alfaro Intl",
     "ICAO": "SEMT",
     "Lat": -0.946078,
@@ -32086,7 +32086,7 @@
   },
   "OCC": {
     "City": "Coca",
-    "Country": "Equador",
+    "Country": "Ecuador",
     "Name": "Francisco De Orellana",
     "ICAO": "SECO",
     "Lat": -0.462886,
@@ -35875,7 +35875,7 @@
   },
   "PTZ": {
     "City": "Pastaza",
-    "Country": "Equador",
+    "Country": "Ecuador",
     "Name": "Shell Mera",
     "ICAO": "SESM",
     "Lat": -2,
@@ -36091,7 +36091,7 @@
   },
   "PVO": {
     "City": "Portoviejo",
-    "Country": "Equador",
+    "Country": "Ecuador",
     "Name": "Reales Tamarindos",
     "ICAO": "SEPV",
     "Lat": -1.041647,
@@ -39124,7 +39124,7 @@
   },
   "SCY": {
     "City": "San Crist├│bal",
-    "Country": "Equador",
+    "Country": "Ecuador",
     "Name": "San Crist├│bal Airport",
     "ICAO": "SEST",
     "Lat": -0.910206,
@@ -40654,7 +40654,7 @@
   },
   "SNC": {
     "City": "Salinas",
-    "Country": "Equador",
+    "Country": "Ecuador",
     "Name": "General Ulpiano Paez",
     "ICAO": "SESA",
     "Lat": -2.204994,
@@ -44056,7 +44056,7 @@
   },
   "TPC": {
     "City": "Tarapoa",
-    "Country": "Equador",
+    "Country": "Ecuador",
     "Name": "Tarapoa",
     "ICAO": "SETR",
     "Lat": -0.122956,
@@ -44101,7 +44101,7 @@
   },
   "TPN": {
     "City": "Tiputini",
-    "Country": "Equador",
+    "Country": "Ecuador",
     "Name": "Tiputini",
     "ICAO": "SETI",
     "Lat": -0.766667,
@@ -44542,7 +44542,7 @@
   },
   "TUA": {
     "City": "Tulcan",
-    "Country": "Equador",
+    "Country": "Ecuador",
     "Name": "Teniente Coronel Luis A Mantilla",
     "ICAO": "SETU",
     "Lat": 0.809506,
@@ -45271,7 +45271,7 @@
   },
   "UIO": {
     "City": "Quito",
-    "Country": "Equador",
+    "Country": "Ecuador",
     "Name": "Mariscal Sucre Intl",
     "ICAO": "SEQU",
     "Lat": -0.141144,
@@ -48565,7 +48565,7 @@
   },
   "XMS": {
     "City": "Macas",
-    "Country": "Equador",
+    "Country": "Ecuador",
     "Name": "Coronel E Carvajal",
     "ICAO": "SEMC",
     "Lat": -2.299167,
