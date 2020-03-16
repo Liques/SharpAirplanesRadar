@@ -1091,7 +1091,7 @@
   },
   "ACE": {
     "City": "Las Palmas",
-    "Country": "Espanha",
+    "Country": "Spain",
     "Name": "Lanzarote",
     "ICAO": "GCRR",
     "Lat": 28.945464,
@@ -1603,7 +1603,7 @@
   },
   "AGP": {
     "City": "Malaga",
-    "Country": "Espanha",
+    "Country": "Spain",
     "Name": "Malaga",
     "ICAO": "LEMG",
     "Lat": 36.6749,
@@ -2080,7 +2080,7 @@
   },
   "ALC": {
     "City": "Alicante",
-    "Country": "Espanha",
+    "Country": "Spain",
     "Name": "Alicante",
     "ICAO": "LEAL",
     "Lat": 38.282169,
@@ -3997,7 +3997,7 @@
   },
   "BCN": {
     "City": "Barcelona",
-    "Country": "Espanha",
+    "Country": "Spain",
     "Name": "Barcelona",
     "ICAO": "LEBL",
     "Lat": 41.297078,
@@ -4942,7 +4942,7 @@
   },
   "BIO": {
     "City": "Bilbao",
-    "Country": "Espanha",
+    "Country": "Spain",
     "Name": "Bilbao",
     "ICAO": "LEBB",
     "Lat": 43.301097,
@@ -5158,7 +5158,7 @@
   },
   "BJZ": {
     "City": "Badajoz",
-    "Country": "Espanha",
+    "Country": "Spain",
     "Name": "Talavera La Real",
     "ICAO": "LEBZ",
     "Lat": 38.89125,
@@ -9334,7 +9334,7 @@
   },
   "CQM": {
     "City": "Ciudad Real",
-    "Country": "Espanha",
+    "Country": "Spain",
     "Name": "Ciudad Real Central Airport",
     "ICAO": "LERL",
     "Lat": 38.856389,
@@ -11998,7 +11998,7 @@
   },
   "EAS": {
     "City": "San Sebastian",
-    "Country": "Espanha",
+    "Country": "Spain",
     "Name": "San Sebastian",
     "ICAO": "LESO",
     "Lat": 43.356519,
@@ -14473,7 +14473,7 @@
   },
   "FUE": {
     "City": "Fuerteventura",
-    "Country": "Espanha",
+    "Country": "Spain",
     "Name": "Fuerteventura",
     "ICAO": "GCFV",
     "Lat": 28.452717,
@@ -15616,7 +15616,7 @@
   },
   "GMZ": {
     "City": "La Gomera",
-    "Country": "Espanha",
+    "Country": "Spain",
     "Name": "La Gomera Airport",
     "ICAO": "GCGM",
     "Lat": 28.0296,
@@ -15976,7 +15976,7 @@
   },
   "GRO": {
     "City": "Gerona",
-    "Country": "Espanha",
+    "Country": "Spain",
     "Name": "Girona",
     "ICAO": "LEGE",
     "Lat": 41.900969,
@@ -16048,7 +16048,7 @@
   },
   "GRX": {
     "City": "Granada",
-    "Country": "Espanha",
+    "Country": "Spain",
     "Name": "Granada",
     "ICAO": "LEGR",
     "Lat": 37.188731,
@@ -17992,7 +17992,7 @@
   },
   "HSK": {
     "City": "Huesca",
-    "Country": "Espanha",
+    "Country": "Spain",
     "Name": "Huesca-Pirineos Airport",
     "ICAO": "LEHC",
     "Lat": 42.080833,
@@ -18541,7 +18541,7 @@
   },
   "IBZ": {
     "City": "Ibiza",
-    "Country": "Espanha",
+    "Country": "Spain",
     "Name": "Ibiza",
     "ICAO": "LEIB",
     "Lat": 38.872858,
@@ -18919,7 +18919,7 @@
   },
   "ILD": {
     "City": "Lleida",
-    "Country": "Espanha",
+    "Country": "Spain",
     "Name": "Lleida-Alguaire Airport",
     "ICAO": "LEDA",
     "Lat": 41.727778,
@@ -20152,7 +20152,7 @@
   },
   "JCU": {
     "City": "Ceuta",
-    "Country": "Espanha",
+    "Country": "Spain",
     "Name": "Ceuta Heliport",
     "ICAO": "GECT",
     "Lat": 35.8969,
@@ -24202,7 +24202,7 @@
   },
   "LCG": {
     "City": "La Coruna",
-    "Country": "Espanha",
+    "Country": "Spain",
     "Name": "A Coruna",
     "ICAO": "LECO",
     "Lat": 43.302061,
@@ -24445,7 +24445,7 @@
   },
   "LEI": {
     "City": "Almeria",
-    "Country": "Espanha",
+    "Country": "Spain",
     "Name": "Almeria",
     "ICAO": "LEAM",
     "Lat": 36.843936,
@@ -24481,7 +24481,7 @@
   },
   "LEN": {
     "City": "Leon",
-    "Country": "Espanha",
+    "Country": "Spain",
     "Name": "Leon Airport",
     "ICAO": "LELN",
     "Lat": 42.589,
@@ -24526,7 +24526,7 @@
   },
   "LEU": {
     "City": "Seo De Urgel",
-    "Country": "Espanha",
+    "Country": "Spain",
     "Name": "Seo De Urgel",
     "ICAO": "LESU",
     "Lat": 42.338611,
@@ -25480,7 +25480,7 @@
   },
   "LPA": {
     "City": "Gran Canaria",
-    "Country": "Espanha",
+    "Country": "Spain",
     "Name": "Gran Canaria",
     "ICAO": "GCLP",
     "Lat": 27.931886,
@@ -26569,7 +26569,7 @@
   },
   "MAD": {
     "City": "Madrid",
-    "Country": "Espanha",
+    "Country": "Spain",
     "Name": "Barajas",
     "ICAO": "LEMD",
     "Lat": 40.493556,
@@ -26605,7 +26605,7 @@
   },
   "MAH": {
     "City": "Menorca",
-    "Country": "Espanha",
+    "Country": "Spain",
     "Name": "Menorca",
     "ICAO": "LEMH",
     "Lat": 39.862597,
@@ -27964,7 +27964,7 @@
   },
   "MJV": {
     "City": "Murcia",
-    "Country": "Espanha",
+    "Country": "Spain",
     "Name": "Murcia San Javier",
     "ICAO": "LELC",
     "Lat": 37.774972,
@@ -28216,7 +28216,7 @@
   },
   "MLN": {
     "City": "Melilla",
-    "Country": "Espanha",
+    "Country": "Spain",
     "Name": "Melilla",
     "ICAO": "GEML",
     "Lat": 35.279817,
@@ -32122,7 +32122,7 @@
   },
   "ODB": {
     "City": "Cordoba",
-    "Country": "Espanha",
+    "Country": "Spain",
     "Name": "Cordoba",
     "ICAO": "LEBA",
     "Lat": 37.842006,
@@ -33337,7 +33337,7 @@
   },
   "OVD": {
     "City": "Aviles",
-    "Country": "Espanha",
+    "Country": "Spain",
     "Name": "Asturias",
     "ICAO": "LEAS",
     "Lat": 43.563567,
@@ -33472,7 +33472,7 @@
   },
   "OZP": {
     "City": "Sevilla",
-    "Country": "Espanha",
+    "Country": "Spain",
     "Name": "Moron Ab",
     "ICAO": "LEMO",
     "Lat": 37.174917,
@@ -34948,7 +34948,7 @@
   },
   "PMI": {
     "City": "Palma de Mallorca",
-    "Country": "Espanha",
+    "Country": "Spain",
     "Name": "Son Sant Joan",
     "ICAO": "LEPA",
     "Lat": 39.55361,
@@ -35056,7 +35056,7 @@
   },
   "PNA": {
     "City": "Pamplona",
-    "Country": "Espanha",
+    "Country": "Spain",
     "Name": "Pamplona",
     "ICAO": "LEPP",
     "Lat": 42.770039,
@@ -36730,7 +36730,7 @@
   },
   "QSA": {
     "City": "Sabadell",
-    "Country": "Espanha",
+    "Country": "Spain",
     "Name": "Sabadell Airport",
     "ICAO": "LELL",
     "Lat": 41.5209,
@@ -37396,7 +37396,7 @@
   },
   "REU": {
     "City": "Reus",
-    "Country": "Espanha",
+    "Country": "Spain",
     "Name": "Reus",
     "ICAO": "LERS",
     "Lat": 41.147392,
@@ -37513,7 +37513,7 @@
   },
   "RGS": {
     "City": "Burgos",
-    "Country": "Espanha",
+    "Country": "Spain",
     "Name": "Burgos Airport",
     "ICAO": "LEBG",
     "Lat": 42.357628,
@@ -37747,7 +37747,7 @@
   },
   "RJL": {
     "City": "Logro├▒o-Agoncillo",
-    "Country": "Espanha",
+    "Country": "Spain",
     "Name": "Logro├▒o-Agoncillo Airport",
     "ICAO": "LELO",
     "Lat": 42.4542,
@@ -38242,7 +38242,7 @@
   },
   "RRA": {
     "City": "Ronda",
-    "Country": "Espanha",
+    "Country": "Spain",
     "Name": "Ronda Airport",
     "ICAO": "",
     "Lat": 36.75,
@@ -39061,7 +39061,7 @@
   },
   "SCQ": {
     "City": "Santiago",
-    "Country": "Espanha",
+    "Country": "Spain",
     "Name": "Santiago",
     "ICAO": "LEST",
     "Lat": 42.896333,
@@ -39250,7 +39250,7 @@
   },
   "SDR": {
     "City": "Santander",
-    "Country": "Espanha",
+    "Country": "Spain",
     "Name": "Santander",
     "ICAO": "LEXJ",
     "Lat": 43.427064,
@@ -40402,7 +40402,7 @@
   },
   "SLM": {
     "City": "Salamanca",
-    "Country": "Espanha",
+    "Country": "Spain",
     "Name": "Salamanca",
     "ICAO": "LESA",
     "Lat": 40.952117,
@@ -40897,7 +40897,7 @@
   },
   "SPC": {
     "City": "Santa Cruz De La Palma",
-    "Country": "Espanha",
+    "Country": "Spain",
     "Name": "La Palma",
     "ICAO": "GCLA",
     "Lat": 28.626478,
@@ -41788,7 +41788,7 @@
   },
   "SVQ": {
     "City": "Sevilla",
-    "Country": "Espanha",
+    "Country": "Spain",
     "Name": "Sevilla",
     "ICAO": "LEZL",
     "Lat": 37.418,
@@ -42850,7 +42850,7 @@
   },
   "TFN": {
     "City": "Tenerife",
-    "Country": "Espanha",
+    "Country": "Spain",
     "Name": "Tenerife Norte",
     "ICAO": "GCXO",
     "Lat": 28.482653,
@@ -42859,7 +42859,7 @@
   },
   "TFS": {
     "City": "Tenerife",
-    "Country": "Espanha",
+    "Country": "Spain",
     "Name": "Tenerife Sur",
     "ICAO": "GCTS",
     "Lat": 28.044475,
@@ -43966,7 +43966,7 @@
   },
   "TOJ": {
     "City": "Madrid",
-    "Country": "Espanha",
+    "Country": "Spain",
     "Name": "Torrejon",
     "ICAO": "LETO",
     "Lat": 40.496747,
@@ -46279,7 +46279,7 @@
   },
   "VDE": {
     "City": "Hierro",
-    "Country": "Espanha",
+    "Country": "Spain",
     "Name": "Hierro",
     "ICAO": "GCHI",
     "Lat": 27.814847,
@@ -46414,7 +46414,7 @@
   },
   "VGO": {
     "City": "Vigo",
-    "Country": "Espanha",
+    "Country": "Spain",
     "Name": "Vigo",
     "ICAO": "LEVX",
     "Lat": 42.2318,
@@ -46558,7 +46558,7 @@
   },
   "VIT": {
     "City": "Vitoria",
-    "Country": "Espanha",
+    "Country": "Spain",
     "Name": "Vitoria",
     "ICAO": "LEVT",
     "Lat": 42.882836,
@@ -46603,7 +46603,7 @@
   },
   "VLC": {
     "City": "Valencia",
-    "Country": "Espanha",
+    "Country": "Spain",
     "Name": "Valencia",
     "ICAO": "LEVC",
     "Lat": 39.489314,
@@ -46639,7 +46639,7 @@
   },
   "VLL": {
     "City": "Valladolid",
-    "Country": "Espanha",
+    "Country": "Spain",
     "Name": "Valladolid",
     "ICAO": "LEVD",
     "Lat": 41.706111,
@@ -48646,7 +48646,7 @@
   },
   "XRY": {
     "City": "Jerez",
-    "Country": "Espanha",
+    "Country": "Spain",
     "Name": "Jerez",
     "ICAO": "LEJR",
     "Lat": 36.744622,
@@ -52075,7 +52075,7 @@
   },
   "ZAZ": {
     "City": "Zaragoza",
-    "Country": "Espanha",
+    "Country": "Spain",
     "Name": "Zaragoza Ab",
     "ICAO": "LEZG",
     "Lat": 41.666242,
