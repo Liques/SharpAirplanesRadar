@@ -17,12 +17,14 @@ namespace NiceAirplanesRadar
         public string Country { get; set; }
         public bool IsValid { get; set; }
 
+        private static IDictionary<string, string> ListOfCountries { get; set; }
+
         public AircraftRegistration(string registration)
         {
             try
             {
                 this.Name = registration;
-                //this.Country = GetCountryRegistration(registration);
+                this.Country = GetCountryRegistration(registration);
                 this.IsValid = !String.IsNullOrEmpty(registration);
             }
             catch (Exception e)
@@ -43,20 +45,23 @@ namespace NiceAirplanesRadar
         /// <returns></returns>
         private static string GetCountryRegistration(string registration)
         {
-            string jsonstring = ResourceHelper.LoadExternalResource(resourceFileName);
-
-            var listCountires = JsonConvert.DeserializeObject<IDictionary<string, string>>(jsonstring);
-
-            string country = String.Empty;
-            var countryReg = listCountires.Keys.Where(s => registration.StartsWith(s)).FirstOrDefault();
-            countryReg = (String.IsNullOrEmpty(countryReg)) ? "" : countryReg;
-
-            if (listCountires.ContainsKey(countryReg))
+            if (ListOfCountries == null)
             {
-                country = listCountires[countryReg];
+                string jsonstring = ResourceHelper.LoadExternalResource(resourceFileName);
+                ListOfCountries = JsonConvert.DeserializeObject<IDictionary<string, string>>(jsonstring);
+
+                LoggingHelper.LogBehavior($">>> Done converting {resourceFileName} file ''.");
+
             }
 
-            LoggingHelper.LogBehavior($">>> Done converting {resourceFileName} file ''.");
+            string country = String.Empty;
+            var countryReg = ListOfCountries.Keys.Where(s => registration.StartsWith(s)).FirstOrDefault();
+            countryReg = (String.IsNullOrEmpty(countryReg)) ? "" : countryReg;
+
+            if (ListOfCountries.ContainsKey(countryReg))
+            {
+                country = ListOfCountries[countryReg];
+            }
 
             return country;
         }
