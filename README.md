@@ -30,3 +30,36 @@ var client = new AirplanesRadar(SourceAPI.OpenSky);
 // Let's see how is the air traffic in Los Angeles
 var listOfWorldAirplanes = await client.GetAirplanes(Airport.GetAirportByICAO("KLAX").Position);
 ```
+
+Complete C# console example using Latitude/Longitude example:
+```csharp
+using NiceAirplanesRadar;
+using System;
+
+namespace ConsoleApp
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            // Create an instance of the AirplaneLoader class
+            var airplaneLoader = new AirplaneLoader();
+
+            // Define the airport location.
+            var location = new Location(52.308056, 4.764167);
+
+            // Load airplanes from the location asynchronously
+            var airplanes = airplaneLoader.LoadAirplanesFrom(location).Result;
+
+            // Print some information about the airplanes
+            foreach (var airplane in airplanes)
+            {
+                Console.WriteLine($"Model: {airplane.Model}");
+                Console.WriteLine($"Altitude: {airplane.Altitude}");
+                Console.WriteLine($"Speed: {airplane.Speed}");
+                Console.WriteLine();
+            }
+        }
+    }
+}
+```
