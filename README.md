@@ -1,11 +1,11 @@
-# Nice Airplanes Radar
-:airplane:Nice Airplanes Radar is nice and cool loader of real world air traffic. It is possible to get list of airplanes from networks like FlightRadar24, OpenSky Network and ModeSMixer2.
+# Sharp Airplanes Radar
+:airplane:Sharp Airplanes Radar is Sharp and cool loader of real world air traffic. It is possible to get list of airplanes from networks like FlightRadar24, OpenSky Network and ModeSMixer2.
 
-[![NuGet Badge](https://buildstats.info/nuget/NiceAirplanesRadar)](https://www.nuget.org/packages/NiceAirplanesRadar/)
+[![NuGet Badge](https://buildstats.info/nuget/SharpAirplanesRadar)](https://www.nuget.org/packages/SharpAirplanesRadar/)
 
 ## Sources Networks
 
-To load real world air traffic, the Nice Airplanes Radar could load data from these networks:
+To load real world air traffic, the Sharp Airplanes Radar could load data from these networks:
 
 | Source Networks | README |
 | ------ | ------ |
@@ -33,7 +33,7 @@ var listOfWorldAirplanes = await client.GetAirplanes(Airport.GetAirportByICAO("K
 
 Complete C# console example using Latitude/Longitude example:
 ```csharp
-using NiceAirplanesRadar;
+using SharpAirplanesRadar;
 using System;
 
 namespace ConsoleApp
