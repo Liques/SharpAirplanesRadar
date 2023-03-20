@@ -5,6 +5,8 @@ VisualStudioVersion = 17.5.33414.496
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SharpAirplanesRadar", "SharpAirplanesRadar\SharpAirplanesRadar.csproj", "{A96C3AF5-367F-461B-8E3B-23E3F168AE37}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SharpAirplanesRadar.Test", "SharpAirplanesRadar.Test\SharpAirplanesRadar.Test.csproj", "{DE627631-1199-4585-B5F2-11F06AF0F6EA}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{A96C3AF5-367F-461B-8E3B-23E3F168AE37}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A96C3AF5-367F-461B-8E3B-23E3F168AE37}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A96C3AF5-367F-461B-8E3B-23E3F168AE37}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DE627631-1199-4585-B5F2-11F06AF0F6EA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DE627631-1199-4585-B5F2-11F06AF0F6EA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DE627631-1199-4585-B5F2-11F06AF0F6EA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DE627631-1199-4585-B5F2-11F06AF0F6EA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
