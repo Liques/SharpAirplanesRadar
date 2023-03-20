@@ -14,15 +14,15 @@
     <ProjectUrl>https://github.com/Liques/SharpAirplanesRadar</ProjectUrl>
     <PackageProjectUrl>https://github.com/Liques/SharpAirplanesRadar</PackageProjectUrl>
     <Packageproject>https://github.com/Liques/SharpAirplanesRadar</Packageproject>
-    <PackageDescription >Sharp Airplane Radar is Sharp and cool loader of real world air traffic. It is possible to get list of airplanes from networks like FlightRadar24, OpenSky Network and ModeSMixer2.</PackageDescription >
+    <PackageDescription>Sharp Airplane Radar is Sharp and cool loader of real world air traffic. It is possible to get list of airplanes from networks like FlightRadar24, OpenSky Network and ModeSMixer2.</PackageDescription>
     <PackageTags>airplane;radar;api;open sky;aircraft;ModeSMixer2;flight;airport;runway;air;traffic</PackageTags>
     <PackageIcon>icon.png</PackageIcon>
     <PackageIconUrl>https://raw.githubusercontent.com/Liques/SharpAirplanesRadar/master/icon.png</PackageIconUrl>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
-    <None Include="icon.png" Pack="true" PackagePath=""/>
-    <None Include="Licence.txt" Pack="true" PackagePath=""/>
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+    <None Include="icon.png" Pack="true" PackagePath="" />
+    <None Include="Licence.txt" Pack="true" PackagePath="" />
   </ItemGroup>
 </Project>
