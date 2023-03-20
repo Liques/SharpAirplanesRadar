@@ -10,7 +10,7 @@ using SharpAirplanesRadar.Services;
 namespace SharpAirplanesRadar.APIs
 {
 
-    internal class FlightRadar24Api : IAircraftAPI
+    internal class FlightRadar24Api : IRadarAPI
     {
         private const string url = "https://data-live.flightradar24.com/zones/fcgi/feed.js?bounds=@latSouth,@latNorth,@lonWest,@lonEst&faa=1&satellite=1&mlat=1&flarm=1&adsb=1&gnd=1&air=1&vehicles=1&estimated=1&maxage=14400&gliders=1&stats=1";
 

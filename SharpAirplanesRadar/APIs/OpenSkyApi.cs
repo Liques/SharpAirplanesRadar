@@ -8,7 +8,7 @@ using SharpAirplanesRadar.Services;
 
 namespace SharpAirplanesRadar.APIs
 {
-    internal class OpenSkyApi : IAircraftAPI
+    internal class OpenSkyApi : IRadarAPI
     {
         private const string url = "https://opensky-network.org/api/states/all";
 

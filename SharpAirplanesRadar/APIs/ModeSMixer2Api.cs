@@ -8,7 +8,7 @@ using Newtonsoft.Json.Linq;
 namespace SharpAirplanesRadar.APIs
 {
 
-    internal class ModeSMixer2Api : IAircraftAPI
+    internal class ModeSMixer2Api : IRadarAPI
     {
         public string GetUrl(GeoPosition centerPosition = null, double radiusDistanceKilometers = 100, bool cacheEnabled = true, string customUrl = "")
         {

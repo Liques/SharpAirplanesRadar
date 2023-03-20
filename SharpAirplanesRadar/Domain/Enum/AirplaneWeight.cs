@@ -1,4 +1,4 @@
-namespace SharpAirplanesRadar
+namespace SharpAirplanesRadar.Domain.Enum
 {
     /// <summary>
     /// Type of airplane based on its weight
