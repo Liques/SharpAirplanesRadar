@@ -18,48 +18,15 @@ To load real world air traffic, the Sharp Airplanes Radar could load data from t
 It is only needed to select the network.
 
 ```csharp
-var client = new AirplanesRadar(SourceAPI.OpenSky);
+var client = AirplanesRadars.OpenSky();
 var listOfWorldAirplanes = await client.GetAirplanes();
 ```
 
 Would you like to see the airplanes around your city? It is very easy too, you just need to know what is the airport code, actually I meant, the airport [ICAO](https://en.wikipedia.org/wiki/ICAO_airport_code) code from where you wish.
 
 ```csharp
-var client = new AirplanesRadar(SourceAPI.OpenSky);
+var client = AirplanesRadars.OpenSky();
 
 // Let's see how is the air traffic in Los Angeles
 var listOfWorldAirplanes = await client.GetAirplanes(Airport.GetAirportByICAO("KLAX").Position);
-```
-
-Complete C# console example using Latitude/Longitude example:
-```csharp
-using SharpAirplanesRadar;
-using System;
-
-namespace ConsoleApp
-{
-    class Program
-    {
-        static void Main(string[] args)
-        {
-            // Create an instance of the AirplaneLoader class
-            var airplaneLoader = new AirplaneLoader();
-
-            // Define the airport location.
-            var location = new Location(52.308056, 4.764167);
-
-            // Load airplanes from the location asynchronously
-            var airplanes = airplaneLoader.LoadAirplanesFrom(location).Result;
-
-            // Print some information about the airplanes
-            foreach (var airplane in airplanes)
-            {
-                Console.WriteLine($"Model: {airplane.Model}");
-                Console.WriteLine($"Altitude: {airplane.Altitude}");
-                Console.WriteLine($"Speed: {airplane.Speed}");
-                Console.WriteLine();
-            }
-        }
-    }
-}
 ```
