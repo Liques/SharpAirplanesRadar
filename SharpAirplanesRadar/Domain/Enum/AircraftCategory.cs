@@ -1,4 +1,4 @@
-namespace SharpAirplanesRadar
+namespace SharpAirplanesRadar.Domain.Enum
 {
     public enum AircraftCategory
     {
@@ -9,5 +9,5 @@ namespace SharpAirplanesRadar
         Helicopter = 4
     }
 
-    
+
 }

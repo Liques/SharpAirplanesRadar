@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
+using Microsoft.Extensions.DependencyInjection;
 using SharpAirplanesRadar.Util;
 
 namespace SharpAirplanesRadar
@@ -12,6 +13,9 @@ namespace SharpAirplanesRadar
 
         public AirplanesRadar(IServiceAPI serviceAPI, bool isCacheEnabled = false)
         {
+            var services = new ServiceCollection();
+            var serviceProvider = services.BuildServiceProvider();
+
             source = serviceAPI;
             this.IsCacheEnabled = isCacheEnabled;
 
