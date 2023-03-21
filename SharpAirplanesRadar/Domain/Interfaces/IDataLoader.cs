@@ -4,6 +4,6 @@ namespace SharpAirplanesRadar
 {
     internal interface IDataLoader
     {
-        Task<string> Load(string customUrl = null);
+        Task<string> Load(string url);
     }
 }

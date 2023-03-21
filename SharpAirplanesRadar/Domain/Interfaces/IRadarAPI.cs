@@ -4,7 +4,7 @@ using System.Threading.Tasks;
 
 namespace SharpAirplanesRadar
 {
-    public interface IAircraftAPI
+    public interface IRadarAPI
     {
 
         IEnumerable<IAircraft> Serializer(string data);
