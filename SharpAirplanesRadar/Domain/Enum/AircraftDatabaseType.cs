@@ -1,7 +1,6 @@
-namespace SharpAirplanesRadar.Domain.Enum
+namespace SharpAirplanesRadar
 {
-    public enum AircraftDatabaseType
-    {
+    public enum AircraftDatabaseType {
         OpenSky,
     }
 }

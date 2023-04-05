@@ -15,11 +15,6 @@ namespace SharpAirplanesRadar.Util
         static IEnumerable<AircraftDatabase> ListHexCodes = new List<AircraftDatabase>();
         static IDictionary<string, string> dataRawDic = null;
 
-        static AircraftDatabase()
-        {
-            
-        }
-
         public static void LoadAircraftDatabaseFromOpenSky(string fileName)
         {
             try
@@ -41,12 +36,6 @@ namespace SharpAirplanesRadar.Util
             {
                 throw new ArgumentException($"Error loading file '{fileName}'.", e);
             }
-        }
-
-
-        private AircraftDatabase()
-        {
-            
         }
 
         public static AircraftDatabase GetByICAO(string icao)

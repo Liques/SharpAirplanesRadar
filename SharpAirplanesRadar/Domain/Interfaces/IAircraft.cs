@@ -1,3 +1,4 @@
+using SharpAirplanesRadar.Domain.Enum;
 using System;
 
 namespace SharpAirplanesRadar

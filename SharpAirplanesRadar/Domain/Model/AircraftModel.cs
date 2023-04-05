@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using SharpAirplanesRadar.Util;
+using SharpAirplanesRadar.Domain.Enum;
 
 namespace SharpAirplanesRadar
 {

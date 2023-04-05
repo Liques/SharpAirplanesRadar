@@ -7,13 +7,7 @@ namespace SharpAirplanesRadar.Util
 {
     internal class DataLoader : IDataLoader
     {
-        private string url;
-        public DataLoader(string url)
-        {
-            this.url = url;
-        }
-
-        public async Task<string> Load(string customUrl = null)
+        public async Task<string> Load(string url)
         {
             HttpClient httpClient = new HttpClient();
             HttpResponseMessage response = null;
@@ -22,8 +16,7 @@ namespace SharpAirplanesRadar.Util
             {
                 LoggingHelper.LogBehavior(">> Trying to load data from server...");
 
-                var apiUrl = String.IsNullOrEmpty(customUrl) ? this.url : customUrl;
-                response = await httpClient.GetAsync(apiUrl);
+                response = await httpClient.GetAsync(url);
                 LoggingHelper.LogBehavior(">> Done load data from server.");
             }
             catch (Exception e)

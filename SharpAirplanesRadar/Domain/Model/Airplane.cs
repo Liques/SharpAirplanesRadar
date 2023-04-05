@@ -1,4 +1,5 @@
 ﻿using System;
+using SharpAirplanesRadar.Domain.Enum;
 using SharpAirplanesRadar.Util;
 
 namespace SharpAirplanesRadar

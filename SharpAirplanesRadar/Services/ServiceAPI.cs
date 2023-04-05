@@ -6,30 +6,32 @@ using SharpAirplanesRadar.Util;
 
 namespace SharpAirplanesRadar.Services
 {
-    internal abstract class ServiceAPI : IServiceAPI
+    internal class ServiceAPI : IServiceAPI
     {
-        private IDataLoader ServiceDataLoader { get; set; }
-        private string CacheFileName { get; set; }
+        string cacheFileName = string.Empty;
         public DateTime LastUpdate { get; private set; }
         public TimeSpan UpdateInterval { get; set; }
         protected IEnumerable<IAircraft> LastAirplanes { get; private set; }
         private bool isUpdating = false;
+        private readonly IDataLoader serviceDataLoader;
+        private readonly IRadarAPI radarAPI;
 
-        public ServiceAPI(IDataLoader serviceDataLoader, string cacheFileName, TimeSpan updateInterval)
+        public ServiceAPI(IDataLoader serviceDataLoader, IRadarAPI radarAPI)
         {
-            this.ServiceDataLoader = serviceDataLoader;
-            this.CacheFileName = cacheFileName;
-            this.UpdateInterval = updateInterval;
+            cacheFileName = Guid.NewGuid().ToString();
+            this.serviceDataLoader = serviceDataLoader;
+            this.radarAPI = radarAPI;
+            this.UpdateInterval = new TimeSpan(0, 0, 10);
             this.LastUpdate = DateTime.MinValue;
         }
 
-        protected abstract IEnumerable<IAircraft> Conversor(string data);
-
         public virtual async Task<IEnumerable<IAircraft>> GetAirplanes(GeoPosition centerPosition = null, double radiusDistanceKilometers = 100, bool cacheEnabled = true, string customUrl = "")
         {
+            var url = radarAPI.GetUrl(centerPosition, radiusDistanceKilometers, cacheEnabled, customUrl);
+
             if (this.LastUpdate + this.UpdateInterval <= DateTime.Now)
             {
-                await Update(customUrl: customUrl);
+                await Update(customUrl: url);
 
                 if (LastAirplanes == null)
                 {
@@ -48,10 +50,10 @@ namespace SharpAirplanesRadar.Services
         public async void LoadCache(bool cacheEnabled, string customUrl = null)
         {
 
-            if (cacheEnabled && !String.IsNullOrEmpty(CacheFileName) && System.IO.File.Exists(CacheFileName) && System.IO.File.GetLastWriteTime(CacheFileName).AddMinutes(1) < DateTime.Now)
+            if (cacheEnabled && !String.IsNullOrEmpty(cacheFileName) && System.IO.File.Exists(cacheFileName) && System.IO.File.GetLastWriteTime(cacheFileName).AddMinutes(1) < DateTime.Now)
             {
                 LoggingHelper.LogBehavior("> Trying to load CACHE airplane list...");
-                var file = System.IO.File.OpenText(CacheFileName);
+                var file = System.IO.File.OpenText(cacheFileName);
                 var cacheFileString = file.ReadToEnd();
                 file.Close();
                 await Update(jsonData: cacheFileString, customUrl: customUrl);
@@ -76,13 +78,13 @@ namespace SharpAirplanesRadar.Services
 
                 isUpdating = true;
 
-                jsonData = await this.ServiceDataLoader.Load(customUrl);
+                jsonData = await this.serviceDataLoader.Load(customUrl);
 
                 try
                 {
-                    if (!String.IsNullOrEmpty(CacheFileName))
+                    if (!String.IsNullOrEmpty(cacheFileName))
                     {
-                        System.IO.File.WriteAllText(CacheFileName, jsonData);
+                        System.IO.File.WriteAllText(cacheFileName, jsonData);
                     }
                 }
                 catch (Exception e)
@@ -92,7 +94,7 @@ namespace SharpAirplanesRadar.Services
             }
             LoggingHelper.LogBehavior(">> Converting raw data to objects...");
 
-            this.LastAirplanes = Conversor(jsonData);
+            this.LastAirplanes = radarAPI.Serializer(jsonData);
 
             LoggingHelper.LogBehavior(">> Done converting raw data to objects.");
 

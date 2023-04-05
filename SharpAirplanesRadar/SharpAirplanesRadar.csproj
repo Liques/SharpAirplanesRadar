@@ -4,7 +4,7 @@
     <TargetFramework>netstandard2.1</TargetFramework>
     <PackageId>SharpAirplanesRadar</PackageId>
     <Title>Sharp Airplanes Radar</Title>
-    <Version>1.2.0</Version>
+    <Version>1.3.0</Version>
     <Authors>Samuel Liques</Authors>
     <Company>Liques</Company>
     <License>MIT</License>
@@ -14,11 +14,18 @@
     <ProjectUrl>https://github.com/Liques/SharpAirplanesRadar</ProjectUrl>
     <PackageProjectUrl>https://github.com/Liques/SharpAirplanesRadar</PackageProjectUrl>
     <Packageproject>https://github.com/Liques/SharpAirplanesRadar</Packageproject>
-    <PackageDescription>Sharp Airplane Radar is Sharp and cool loader of real world air traffic. It is possible to get list of airplanes from networks like FlightRadar24, OpenSky Network and ModeSMixer2.</PackageDescription>
-    <PackageTags>airplane;radar;api;open sky;aircraft;ModeSMixer2;flight;airport;runway;air;traffic</PackageTags>
+    <PackageDescription>Sharp Airplane Radar is tool to load real world air traffic. It is possible to get list of airplanes from networks like OpenSky Network, FlightRadar24, and ModeSMixer2.</PackageDescription>
+    <PackageTags>airplane;radar;api;open sky;opensky;flightradar;flightradar24;aircraft;ModeSMixer2;flight;airport;runway;air;traffic</PackageTags>
     <PackageIcon>icon.png</PackageIcon>
     <PackageIconUrl>https://raw.githubusercontent.com/Liques/SharpAirplanesRadar/master/icon.png</PackageIconUrl>
+    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
   </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Services\FlightRadar24Service.cs" />
+    <Compile Remove="Services\ModeSMixer2Service.cs" />
+    <Compile Remove="Services\OpenSkyService.cs" />
+  </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="7.0.0" />

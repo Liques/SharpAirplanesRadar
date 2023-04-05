@@ -1,6 +1,8 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using Microsoft.Extensions.DependencyInjection;
+using SharpAirplanesRadar.Domain.Enum;
 using SharpAirplanesRadar.Util;
 
 namespace SharpAirplanesRadar
@@ -11,17 +13,16 @@ namespace SharpAirplanesRadar
         public static bool DebugMode { get { return LoggingHelper.ShowBehaviorLog; } set { LoggingHelper.ShowBehaviorLog = value; } }
         public bool IsCacheEnabled { get; set; }
 
+        public AirplanesRadar(Apis api)
+        {
+            var serviceProvider = Startup.Register(api);
+            source = serviceProvider.GetService<IServiceAPI>();
+        }
+
         public AirplanesRadar(IServiceAPI serviceAPI, bool isCacheEnabled = false)
         {
-            var services = new ServiceCollection();
-            var serviceProvider = services.BuildServiceProvider();
-
             source = serviceAPI;
             this.IsCacheEnabled = isCacheEnabled;
-
-            LoggingHelper.LogBehavior("> INIT basic data...");
-            var fooAirplane = new Airplane("0", "0", AltitudeMetric.FromMeter(0), 0, 0, SpeedMetric.FromKnot(0), 0, 0, "", "", "A319", "0", false);
-            LoggingHelper.LogBehavior("> DONE basic data.");
         }
 
         public async Task<IEnumerable<IAircraft>> GetAirplanes(GeoPosition centerPosition = null, double radiusDistanceKilometers = 100)
@@ -38,5 +39,9 @@ namespace SharpAirplanesRadar
             AircraftDatabase.LoadAircraftDatabaseFromOpenSky(fileName);
         }
 
+        public void SetUpdateInterval(int seconds)
+        {
+            source.UpdateInterval = new TimeSpan(0,0,seconds);
+        }
     }
 }
