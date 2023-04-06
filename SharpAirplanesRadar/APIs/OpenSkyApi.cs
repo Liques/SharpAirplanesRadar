@@ -19,7 +19,18 @@ namespace SharpAirplanesRadar.APIs
 
         public IEnumerable<IAircraft> Serializer(string data)
         {
+            if (string.IsNullOrEmpty(data))
+            {
+                return Enumerable.Empty<IAircraft>();
+            }
+
             var jsonData = JsonConvert.DeserializeObject<Dictionary<string, object>>(data);
+
+            if (!jsonData.ContainsKey("states"))
+            {
+                return Enumerable.Empty<IAircraft>();
+            }
+
             var lastAirplanesRaw = JsonConvert.DeserializeObject<List<string[]>>(jsonData["states"].ToString());
 
             var raw = lastAirplanesRaw.FirstOrDefault();
