@@ -35,7 +35,13 @@ namespace SharpAirplanesRadar.APIs
 
         public IEnumerable<IAircraft> Serializer(string data)
         {
+            if (string.IsNullOrEmpty(data))
+            {
+                return Enumerable.Empty<IAircraft>();
+            }
+
             var dataJson = JsonConvert.DeserializeObject<Dictionary<string, object>>(data);
+
             dataJson.Remove("full_count");
             dataJson.Remove("version");
             dataJson.Remove("stats");
