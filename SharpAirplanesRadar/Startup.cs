@@ -11,9 +11,22 @@ namespace SharpAirplanesRadar
 {
     internal static class Startup
     {
-        public static IServiceProvider Register(Apis api)
+        public static IServiceProvider Register(Apis api, bool containsToken = false)
         {
             var services = new ServiceCollection();
+
+            if(containsToken)
+                TokenApis(api, services);
+            else
+                SimpleApis(api, services);
+
+            services.AddSingleton<IServiceAPI, ServiceAPI>();
+            return services.BuildServiceProvider();
+        }
+
+        private static void SimpleApis(Apis api, ServiceCollection services)
+        {
+            services.AddSingleton<IDataLoader, DataLoader>();
 
             switch (api)
             {
@@ -27,10 +40,18 @@ namespace SharpAirplanesRadar
                     services.AddSingleton<IRadarAPI, FlightRadar24Api>();
                     break;
             }
+        }
 
-            services.AddSingleton<IDataLoader, DataLoader>();
-            services.AddSingleton<IServiceAPI, ServiceAPI>();
-            return services.BuildServiceProvider();
+        private static void TokenApis(Apis api, ServiceCollection services)
+        {
+            switch (api)
+            {
+                case Apis.OpenSky:
+                case Apis.FlightRadar24:
+                    throw new Exception("Token access support for this API is still not available.");
+                default:
+                    throw new Exception("This API does not requires a token.");
+            }
         }
     }
 }
